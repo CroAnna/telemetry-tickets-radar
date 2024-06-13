@@ -1,0 +1,32 @@
+docker network create --subnet=20.24.5.0/24 nwtis_dz_2n
+docker network inspect nwtis_dz_2n
+docker volume create nwtis_hsql_dz_2v
+docker volume inspect nwtis_hsql_dz_2v
+sudo ls -al /var/lib/docker/volumes/nwtis_hsql_dz_2v/_data
+sudo cp -R /opt/hsqldb-2.7.2/hsqldb/data/* /var/lib/docker/volumes/nwtis_hsql_dz_2v/_data/
+
+
+// ovo sad iz korijenskog direktorija obavezno sve:
+docker build -t nwtis_hsql_dz_2i -f Dockerfile.hsql . 
+
+// ovaj dio s -p 9001:9001 treba maknut izbrisat kod predaje zadace:
+docker run -it -d --network=nwtis_dz_2n --ip 20.24.5.3 -p 9001:9001 --name=nwtis_hsql_dz_2c --hostname=nwtis_hsql_dz_2c --mount source=nwtis_hsql_dz_2v,target=/opt/data nwtis_hsql_dz_2i:latest
+
+
+docker ps
+
+java -jar askarica20_vjezba_07_dz_2_servisi/target/askarica20_vjezba_07_dz_2_servisi-1.0.0-jar-with-dependencies.jar
+http://localhost:8080/nwtis/v1/api/kazne
+
+docker stop nwtis_hsql_dz_2c 
+docker remove nwtis_hsql_dz_2c 
+
+
+
+docker volume create nwtis_h2_dz_2v
+docker volume inspect nwtis_h2_dz_2v
+sudo ls -al /var/lib/docker/volumes/nwtis_h2_dz_2v/_data
+sudo cp -R /opt/database/* /var/lib/docker/volumes/nwtis_h2_dz_2v/_data/
+docker build -t nwtis_h2_dz_2i -f Dockerfile.h2 .
+docker run -it -d --network=nwtis_dz_2n --ip 20.24.5.4 -p 9092:9092 --name=nwtis_h2_dz_2c --hostname=nwtis_h2_dz_2c --mount source=nwtis_h2_dz_2v,target=/opt/database nwtis_h2_dz_2i:latest
+pokreces s istom onom jar komandom

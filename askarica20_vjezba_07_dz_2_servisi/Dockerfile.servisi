@@ -1,0 +1,14 @@
+FROM amd64/eclipse-temurin:21
+
+RUN apt-get update && \
+    apt-get install -y wget unzip
+
+WORKDIR /servisi
+
+COPY . /servisi
+
+EXPOSE 8080
+
+CMD ["bash", "-c", "\
+java -jar target/askarica20_vjezba_07_dz_2_servisi-1.0.0-jar-with-dependencies.jar & \
+tail -f /dev/null"]
