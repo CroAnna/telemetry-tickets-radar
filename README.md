@@ -7,12 +7,30 @@ Electric Vehicle Telemetry: A system for tracking and analyzing electric vehicle
 
 
 ## Documentation - table of contents
-<ul>
-  <li><a href="#technologies">Technologies</a></li>
+<ul>  
+  <li><a href="#demo">Demo video</a></li>
+  <li><a href="#technologies">Demo video</a></li>
   <li><a href="#description">Project description</a></li>
   <li><a href="#architecture">Architecture</a></li>
   <li><a href="#more">More details</a></li>
 </ul>
+
+<div id="demo"></div>
+
+## Demo video
+
+<p align="center">
+
+<p>Watch the video: 👇</p>
+
+[<img src="https://img.youtube.com/vi/g9Bbezn2NE8/hqdefault.jpg"/>](https://youtu.be/g9Bbezn2NE8)
+
+</p>
+
+
+
+
+
 
 <div id="technologies"></div>
 
